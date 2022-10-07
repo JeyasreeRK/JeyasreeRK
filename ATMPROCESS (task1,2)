@@ -1,0 +1,53 @@
+	package task;
+
+	import java.io.FileInputStream;
+	import java.io.FileNotFoundException;
+	import java.io.FileOutputStream;
+	import java.io.IOException;
+	import java.io.InputStreamReader;
+	import java.util.Scanner;
+
+	public class ATM {
+	static void LoadCashtoATM() {
+	Scanner s = new Scanner(System.in);
+	int d1,d2,d3;
+	 System.out.println("number 1:");
+	 d1=s.nextInt();
+	 System.out.println("number 2:");
+	 d2=s.nextInt();
+	 System.out.println("number 3:");
+	 d3=s.nextInt();
+	 System.out.println("value  = "+2000*d1);
+	 System.out.println("value  = "+500*d2);
+	 System.out.println("value  = "+100*d3);
+
+	}
+	    static void ShowCustomerDetails() throws IOException  {
+	FileInputStream fis = new FileInputStream("details");
+	InputStreamReader irs = new  InputStreamReader(fis);
+	int j;
+	while((j=irs.read())!=-1) {
+	System.out.print((char)j);
+	}}
+	
+
+	 public static void main(String[]args) throws IOException {
+	Scanner s = new Scanner(System.in);
+	System.out.println("main menu");
+	System.out.println("Load Cash to ATM");
+	System.out.println("Show Customer Details");
+	System.out.println("choice");
+	int ch =s. nextInt();
+	switch(ch) {
+	case 1:
+	LoadCashtoATM();
+	break;
+	case 2:
+	ShowCustomerDetails();
+	break;
+	case 3:
+		System.exit(0);
+		
+	}
+	 }
+	}
