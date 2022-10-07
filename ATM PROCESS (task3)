@@ -1,0 +1,98 @@
+package account;
+
+class ATMprocess
+{
+	private int acc_no;
+	private String name1;
+	private String name2;
+	
+	
+	private int balance;
+	public ATMprocess(int acc_no, String name1,int balance, String name2) {
+		this.acc_no = acc_no;
+		this.name1 = name1;
+		this.name2 = name2;
+		this.balance = balance;
+	}
+	@Override
+	public String toString() {
+		return "BankAccount [acc_no=" + acc_no + ", name1=" + name1 + ", name2=" + name2 + ", balance=" + balance + "]";
+	}
+	public void withdraw(int amt)
+	{
+		if(amt<=balance)
+		{
+			System.out.println("W:Current Balance is:"+balance);
+			System.out.println("W:Amount to be Withdrawn : "+amt);
+			System.out.println("W:Withdrawing....");
+			this.balance = this.balance - amt;
+			
+			System.out.println("W:Withdraw Completed....");
+			System.out.println("W:Current Balance is:"+balance);
+			
+		}
+		else
+		{
+			System.out.println("Insufficient Balance....");
+		}
+	}
+	public void deposit(int amt)
+	{
+		System.out.println("D:Current Balance is:"+balance);
+		System.out.println("D:Amount to be Deposited: "+amt);
+		this.balance = this.balance + amt;
+		System.out.println("D:Deposit Completed....");
+		System.out.println("D:Current Balance is:"+balance);
+	}
+}
+class AWThread implements Runnable
+{
+	ATMprocess b;
+	int amt;
+	
+	public AWThread(ATMprocess b,int a) {
+		super();
+		this.b = b;
+		this.amt = a;
+	}
+
+	public void run()
+	{
+		synchronized(b)
+		{
+		b.withdraw(amt);
+		}
+	}
+}
+class ADThread implements Runnable
+{
+	ATMprocess b;
+	int amt;
+	
+	public ADThread(ATMprocess b,int a) {
+		super();
+		this.b = b;
+		this.amt = a;
+	}
+
+	public void run()
+	{
+		synchronized(b)
+		{
+		b.deposit(amt);
+		}
+	}
+}
+
+public class ATM {
+	public static void main(String[] args) {
+		ATMprocess AP = new ATMprocess(15000,"D1", 15000, "D2");
+		Thread D1 = new Thread(new AWThread(AP,500));
+		Thread D2 = new Thread(new AWThread(AP,500));
+		Thread D3 = new Thread(new ADThread(AP,15000));
+		D1.start();
+		D2.start();
+		D3.start();
+
+}
+}
