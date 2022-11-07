@@ -1,0 +1,134 @@
+1 Create an array called practiceFile with the following entry: 273.15. Use
+the push method to add the following elements to the array. Add items a & b one at
+a time, then use a single push to add the items in part c. Print the array after each
+step to confirm the changes.
+  
+let practiceFile = [273.15]; 
+practiceFile.push(42);
+console.log(practiceFile); 
+practiceFile.push("hello"); 
+console.log(practiceFile); 
+practiceFile.push(false, -4.6, "87");
+console.log(practiceFile); 
+
+2  push, pop, shift and unshift are used to add/remove elements from the beginning/end of 
+an array. Bracket notation can be used to modify any element within an array. Starting 
+with 
+the cargoHold array ['oxygen tanks', 'space suits', 'parrot', 'instruction manua
+l', 'meal packs', 'slinky', 'security blanket'], write statements to do the 
+following:
+
+let cargoHold = ['oxygen tanks', 'space suits', 'parrot', 'instruction manual', 'meal packs', 'slinky', 'security blanket'];
+  cargoHold[5] = 'space tether';
+  console.log(cargoHold); 
+  cargoHold.pop(); 
+  console.log(cargoHold);  
+  console.log(cargoHold.shift());
+console.log(cargoHold); 
+console.log(`The array ${cargoHold} has a length of ${cargoHold.length}.`); 
+ cargoHold.splice(3,0,'keys');
+console.log(cargoHold); 
+for( var i = 0; i < cargoHold.length; i++){ 
+                                   
+        if ( cargoHold[i] ==='instruction manual') { 
+            cargoHold.splice(i, 1); 
+            i--; 
+        }
+    }
+
+  console.log(cargoHold);  
+  cargoHold.splice(2,3,'cat','fob','string cheese');
+console.log(cargoHold); 
+3  Some methods---like splice and push---alter the original array, while others do
+not. 
+let holdCabinet1= ['duct tape', 'gum', 3.14, false, 6.022e23];
+ let holdCabinet2 =['orange drink', 'nerf toys', 'camera', 42, 'parsnip'];
+ 
+console.log(holdCabinet1.concat(holdCabinet2));
+console.log(holdCabinet1); 
+  let arr1=holdCabinet1.slice(3);
+let arr2=holdCabinet2.slice(3);
+console.log(holdCabinet1);
+console.log(arr1);
+console.log(holdCabinet2);
+console.log(arr2);
+holdCabinet1.reverse();
+holdCabinet2.sort();
+console.log(holdCabinet1);
+console.log(holdCabinet2);
+
+4 The split method converts a string into an array, while the join method does the 
+opposite.
+
+let str = 'In space, no one can hear you code.'
+
+
+console.log(str.split());
+console.log(str.split('e'));
+console.log(str.split(' '));
+console.log(str.split(''));
+
+let arr = ['B', 'n', 'n', 5];
+console.log(arr.join());
+console.log(arr.join('a'));
+console.log(arr.join(' '));
+console.log(arr.join(''));
+console.log(cargoHold.split(',').sort().join(','));
+5 Arrays can hold different data types, even other arrays! A multi-dimensional 
+array is one with entries that are themselves arrays.
+e1 = ['hydrogen', 'H', 1.008]
+e2 = ['helium', 'He', 4.003]
+e26 = ['iron', 'Fe', 55.85]
+let e1 = ['hydrogen', 'H', 1.008];
+let e2 = ['helium', 'He', 4.003];
+let e26 = ['iron', 'Fe', 55.85];
+
+let table=e1.push();
+console.log(table);
+e2.push();
+console.log(table);
+e26.push();
+console.log(table);
+console.log(table[1], table[1][1]);
+
+6 For each of the exercises below, assume you are starting with the following people array.
+let people = ["Greg", "Mary", "Devon", "James"];
+
+for(let i = 0; i < people.lenght; i++){
+  console.log(`welcome to array loop class ${people[i]}`);
+}
+let people = ["Greg", "Mary", "Devon", "James"];
+people.shift();
+
+let people = ["Mary", "Devon", "James"];
+people.pop();
+
+let people = ["Mary", "Devon"];
+people.unshift("Matt");
+
+let people = ["Matt", "Mary", "Devon"];
+people.push("Pemmy");
+
+let people = ["Matt", "Mary", "Devon", "Pemmy"];
+for(let i = 0; i < 2; i++){
+  console.log(`welcome to array loop class ${people[i]}`);
+}
+let people = ["Matt", "Mary", "Devon", "Pemmy"];
+let slicer = people.slice(2);
+console.log(slicer)
+let people = ["Matt", "Mary", "Devon", "Pemmy"];
+console.log(people.indexOf("Mary"))
+
+let people = ["Matt", "Mary", "Devon", "Pemmy"];
+console.log(people.indexOf("foo"))
+let people = ["Greg", "Mary", "Devon", "James"];
+people.splice(2, 1, "elizabeth", "artie")
+console.log(people)
+let withBob=peole.concat("bob")
+
+
+
+
+
+
+
